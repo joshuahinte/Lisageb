@@ -17,6 +17,8 @@ body {
 }
 
 #giftVideo {
+  z-index: 10;
+  position: relative;
   margin-top: 32px; /* vorher 200px */
   background: #222;
   border-radius: 16px;
@@ -83,8 +85,8 @@ body {
 /* Flip Card Styles */
 .flip-card {
   background: transparent;
-  width: 400px;           /* Bild und Card größer */
-  height: 260px;
+  width: 450px;           /* Bild und Card größer */
+  height: 300px;
   perspective: 1000px;
   margin-top: 24px;
   margin-bottom: 80px;    /* Mehr Platz unter dem Ticket-Bild */
@@ -127,12 +129,12 @@ body {
   display: block;
   margin: 0 auto;
   object-fit: contain;
-  max-height: 240px;      /* Bild passt in größere Card */
+  max-height: 320px;      /* Bild passt in größere Card */
 }
 .flip-text {
-  font-size: 1.2rem;
+  font-size: 20px;
   color: #222;
-  text-align: center;
+  text-align: left;
 }
 
 /* Floating Particles */
@@ -177,4 +179,10 @@ body {
 @keyframes bounceDown {
   0%, 100% { transform: translateY(0);}
   50% { transform: translateY(16px);}
+}
+
+.flip-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 32px rgba(247, 77, 173, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
