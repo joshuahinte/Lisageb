@@ -32,6 +32,10 @@
       <source src="video/geschenk.mp4" type="video/mp4">
       Dein Browser unterstützt das Video-Tag nicht.
     </video>
+    <!-- Pfeil unter dem Video -->
+    <div class="arrow-down" id="scrollToTicket" title="Zum Ticket scrollen">
+      &#8595;
+    </div>
     <!-- Flip Card für das Bild -->
     <div class="flip-card" id="ticketCard">
       <div class="flip-card-inner">
@@ -79,6 +83,11 @@
     // Flip-Animation beim Klick auf das Bild
     document.getElementById('ticketCard').addEventListener('click', function() {
       this.classList.toggle('flipped');
+    });
+
+    // Scroll zum Ticket-Bild bei Klick auf Pfeil
+    document.getElementById('scrollToTicket').addEventListener('click', function() {
+      document.getElementById('ticketCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   </script>
 </body>

@@ -8,11 +8,14 @@
 
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--dark-color);
-  overflow: hidden;
   perspective: 1000px;
+  min-height: 100vh;
+  padding-bottom: 80px;   /* Abstand zum unteren Rand */
 }
+
 #giftVideo {
   margin-top: 32px; /* vorher 200px */
   background: #222;
@@ -80,13 +83,13 @@ body {
 /* Flip Card Styles */
 .flip-card {
   background: transparent;
-  width: 320px;
-  height: 200px;
+  width: 400px;           /* Bild und Card größer */
+  height: 260px;
   perspective: 1000px;
   margin-top: 24px;
+  margin-bottom: 80px;    /* Mehr Platz unter dem Ticket-Bild */
   cursor: pointer;
   box-sizing: border-box;
-  /* Optional: falls zu weit unten, margin-bottom reduzieren oder entfernen */
 }
 .flip-card-inner {
   position: relative;
@@ -124,7 +127,7 @@ body {
   display: block;
   margin: 0 auto;
   object-fit: contain;
-  max-height: 180px; /* damit das Bild nicht aus der Card ragt */
+  max-height: 240px;      /* Bild passt in größere Card */
 }
 .flip-text {
   font-size: 1.2rem;
@@ -155,4 +158,23 @@ body {
     transform: translateY(-15px) translateX(8px);
     opacity: 0.8;
   }
+}
+
+.arrow-down {
+  font-size: 48px;
+  font-weight: bolder;
+  color: rgb(247, 77, 173);
+  cursor: pointer;
+  margin: 24px 0 150px 0; /* Mehr Abstand nach unten */
+  animation: bounceDown 1.2s infinite;
+  user-select: none;
+  transition: color 0.2s;
+}
+.arrow-down:hover {
+  color: #ffb3d9;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(16px);}
 }
