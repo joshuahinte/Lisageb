@@ -1,0 +1,159 @@
+/* Video-Container */
+
+/* Video-Element */
+:root {
+  --dark-color: #000;
+}   
+
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+#giftVideo {
+  margin-top: 32px; /* vorher 200px */
+  background: #222;
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+}
+
+.not-loaded * {
+  animation-play-state: paused !important;
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  top: 0;
+  left: 0;
+  color: rgb(247, 77, 173);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 60px;
+  text-shadow: 0px 0px 20px rgb(247, 77, 173);
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(255, 255, 250), rgb(240, 240, 240));
+}
+
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: heartFloat 8s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.heart-1 { top: 15%; left: 20%; animation-delay: 0s; }
+.heart-2 { top: 25%; right: 25%; animation-delay: 1.5s; }
+.heart-3 { bottom: 40%; left: 15%; animation-delay: 3s; }
+.heart-4 { top: 70%; right: 20%; animation-delay: 4.5s; }
+.heart-5 { bottom: 20%; right: 35%; animation-delay: 6s; }
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  gap: 32px;
+}
+
+/* Flip Card Styles */
+.flip-card {
+  background: transparent;
+  width: 320px;
+  height: 200px;
+  perspective: 1000px;
+  margin-top: 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+  /* Optional: falls zu weit unten, margin-bottom reduzieren oder entfernen */
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flip-card-front {
+  background: #fff;
+}
+.flip-card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 24px;
+  box-sizing: border-box;
+}
+.ticket-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  max-height: 180px; /* damit das Bild nicht aus der Card ragt */
+}
+.flip-text {
+  font-size: 1.2rem;
+  color: #222;
+  text-align: center;
+}
+
+/* Floating Particles */
+.particle {
+  position: fixed;
+  width: calc(2px + 3 * random());
+  height: calc(2px + 3 * random());
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  left: 50vw;
+  animation: particleFloat 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Particle Animation */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-15px) translateX(8px);
+    opacity: 0.8;
+  }
+}

@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="/src/bdfav.png">
 
   <!-- Document Title -->
-  <title>FLOWERS</title>
+  <title>Happy Brithday</title>
 </head>
 
 <body class="not-loaded">
@@ -328,30 +329,11 @@
 
         <!-- Login Button -->
         <div class="login-section">
-            <button id="loginButton" class="login-button">
-                <span>Öffne das Geschenk</span>
+            <button id="loginButton" class="login-button hidden">
+                <span>Öffne dein Geschenk</span>
             </button>
         </div>
     </div>
-
-    <!-- Login Modal -->
-    <div id="loginModal" class="login-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>🌸 Willkommen 🌸</h2>
-                <button class="close-button" onclick="closeLoginModal()">&times;</button>
-            </div>
-            <form id="loginForm">
-                <div class="input-group">
-                    <input type="text" id="username" placeholder="Benutzername" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="password" placeholder="Passwort" required>
-                </div>
-                <button type="submit" class="submit-btn">Anmelden</button>
-            </form>
-            <div id="error-message" class="error-message"></div>
-        </div>
     </div>
 </body>
 

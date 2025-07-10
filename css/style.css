@@ -1213,9 +1213,11 @@ body {
   animation-play-state: paused !important;
 }
 
+.hidden { display: none !important; }
 
-
-
+.login-button:hover {
+    color: rgb(247, 77, 173) !important;
+}
 
 * {
     margin: 0;
@@ -1557,6 +1559,7 @@ body {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9));
+    color: rgb(247, 77, 173) !important;
 }
 
 .login-button:active {

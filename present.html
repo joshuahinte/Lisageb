@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/present.css">
+  <link rel="icon" type="image/x-icon" href="/src/bdfav.png">
+  <title>Dein Geschenk</title>
+</head>
+
+<body class="not-loaded">
+  <!-- Background -->
+  <div class="night"></div>
+  <!-- Title -->
+  <h1 class="title"><span>Dein Geschenk 🎁</span></h1>
+
+  <!-- Floating Hearts -->
+  <div class="hearts">
+    <div class="heart heart-1">💖</div>
+    <div class="heart heart-2">💕</div>
+    <div class="heart heart-3">💗</div>
+    <div class="heart heart-4">💓</div>
+    <div class="heart heart-5">💝</div>
+  </div>
+
+  <!-- Geschenk Video Platzhalter -->   
+  <div class="video-container">
+    <video id="giftVideo" width="680" height="auto" controls>
+      <source src="video/geschenk.mp4" type="video/mp4">
+      Dein Browser unterstützt das Video-Tag nicht.
+    </video>
+    <!-- Flip Card für das Bild -->
+    <div class="flip-card" id="ticketCard">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="src/tickets.png" alt="Tickets" class="ticket-img">
+        </div>
+        <div class="flip-card-back">
+          <div class="flip-text">Hier steht später dein Text!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Entferne not-loaded Klasse nach kurzer Zeit (wie auf index.html)
+    window.onload = () => {
+      setTimeout(() => {
+        document.body.classList.remove("not-loaded");
+      }, 500);
+    };
+
+    // Herz-Animation wie auf index.html
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('heart')) {
+        e.target.style.transform = 'scale(1.5) rotate(360deg)';
+        e.target.style.filter = 'hue-rotate(90deg)';
+        setTimeout(() => {
+          e.target.style.transform = '';
+          e.target.style.filter = '';
+        }, 500);
+      }
+    });
+
+    // Optional: Floating Particles wie auf index.html
+    function createFloatingParticles() {
+      const body = document.body;
+      for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        body.appendChild(particle);
+      }
+    }
+    createFloatingParticles();
+
+    // Flip-Animation beim Klick auf das Bild
+    document.getElementById('ticketCard').addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+  </script>
+</body>
+</html>
